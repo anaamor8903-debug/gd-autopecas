@@ -4,8 +4,24 @@
     <meta charset="UTF-8">
     <title>G&D Autopeças - Catálogo</title>
     <link rel="stylesheet" href="assets/css/style.css">
+    <!-- Estilos auxiliares para deixar os itens de filtro clicáveis -->
+    <style>
+        .filter-item {
+            cursor: pointer;
+            padding: 4px 0;
+            user-select: none;
+            transition: opacity 0.2s;
+        }
+        .filter-item:hover {
+            opacity: 0.75;
+        }
+        .filter-item.active {
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
+
     <header class="header">
         <div class="logo">G&D <span>AUTOPEÇAS</span></div>
         <div class="search-bar"><input type="text" placeholder="Busque por peça, marca ou código"></div>
@@ -32,38 +48,278 @@
             </aside>
 
             <section class="products-grid">
-                <div class="product-card">
+
+
+<!-- ---------------------------------------------------------
+                     PRODUTOS DA LINHA CARRO 
+                     --------------------------------------------------------- -->
+
+                <!-- Card 1: Kit Freio Dianteiro Carro - Essencial -->
+
+                <div class="product-card" data-veiculo="carro">
                     <div>
                         <div class="product-img-box">
                             <span class="tag-badge">MAIS VENDIDO</span>
-                            <img src="assets/img/disco-freio.png" alt="Kit Essencial">
+                            <img src="assets/img/freio-carro1.PNG" alt="Kit Essencial">
                         </div>
                         <small>G&D / LINHA CARRO</small>
-                        <h3>Kit freio dianteiro G&D Essencial</h3>
-                        <p class="price">R$ 349,90</p>
+                        <h3>Kit Freio Dianteira Fiat Argo Cronos Pulse 2022 A 2026 </h3>
+                        <p class="price">R$ 83,55</p>
                     </div>
                     <a href="produto.html" class="btn-lime" style="text-align:center;">Ver detalhes →</a>
                 </div>
 
-                <div class="product-card">
+<!-- Card 2: Kit Freio Dianteiro Carro - Pro -->
+
+                <div class="product-card" data-veiculo="carro">
                     <div>
-                        <div class="product-img-box"><img src="assets/img/disco-freio.png" alt="Kit Pro"></div>
+                        <div class="product-img-box"><img src="assets/img/freio-carro2.png" alt="Kit Pro"></div>
                         <small>G&D / LINHA CARRO</small>
-                        <h3>Kit freio dianteiro G&D Pro</h3>
-                        <p class="price">R$ 399,90</p>
-                    </div>
-                    <a href="produto.html" class="btn-outline">Outras opções da linha</a>
+                        <h3>Kit Pastilha Freio Dianteira Vw T-cross Nivus Virtus Polo Tsi</h3>
+                        <p class="price">R$ 179,90</p>
+                   </div>
+                    <a href="produto.html" class="btn-lime" style="text-align:center;">Ver detalhes →</a>
                 </div>
 
-                <div class="product-card">
+<!-- Card 3: Kit Freio Dianteiro Carro - Performance -->
+                <div class="product-card" data-veiculo="carro">
                     <div>
-                        <div class="product-img-box"><img src="assets/img/disco-freio.png" alt="Kit Performance"></div>
+                        <div class="product-img-box"><img src="assets/img/freio-carro3.png" alt="Kit Performance"></div>
                         <small>G&D / LINHA CARRO</small>
-                        <h3>Kit freio dianteiro G&D Performance</h3>
-                        <p class="price">R$ 449,90</p>
-                    </div>
-                    <a href="produto.html" class="btn-outline">Outras opções da linha</a>
+                        <h3>Kit  Pastilhas Freio Dianteiro Traseiro Cruze 1.8 2012 /2016</h3>
+                        <p class="price">R$ 182,90</p>
+                   </div>
+                    <a href="produto.html" class="btn-lime" style="text-align:center;">Ver detalhes →</a>
                 </div>
+
+
+  <!-- Card 1: Filtros Carro -->
+
+
+<div class="product-card" data-veiculo="carro">
+                    <div>
+                        <div class="product-img-box"><img src="assets/img/filtro-carro1.png" alt="Kit Performance"></div>
+                        <small>G&D / LINHA CARRO</small>
+                        <h3>  Filtro De Oleo Mann Vw Polo Nivus Virtus Up Taos Tcross Tera</h3>
+                        <p class="price">R$ 29,99</p>
+                   </div>
+                    <a href="produto.html" class="btn-lime" style="text-align:center;">Ver detalhes →</a>
+                </div>
+
+ 
+<!-- Card 2: Filtros Carro -->
+
+
+<div class="product-card" data-veiculo="carro">
+                    <div>
+                        <div class="product-img-box"><img src="assets/img/filtro-carro2.png" alt="Kit Performance"></div>
+                        <small>G&D / LINHA CARRO</small>
+                        <h3>  Filtro De Óleo Prisma Celta Montana Onix Astra Meriva Vectra</h3>
+                        <p class="price">R$ 25,99</p>
+                   </div>
+                    <a href="produto.html" class="btn-lime" style="text-align:center;">Ver detalhes →</a>
+                </div>
+<!-- Card 3: Filtros Carro -->
+
+
+<div class="product-card" data-veiculo="carro">
+                    <div>
+                        <div class="product-img-box"><img src="assets/img/filtro-carro3.png" alt="Kit Performance"></div>
+                        <small>G&D / LINHA CARRO</small>
+                        <h3>Filtro De Óleo Argo Cronos Mobi Nova Strada Fiat 7094709</h3>
+                        <p class="price">R$ 70,90</p>
+                   </div>
+                    <a href="produto.html" class="btn-lime" style="text-align:center;">Ver detalhes →</a>
+                </div>
+
+
+ <!-- Card 1: suspensao Carro -->
+
+
+<div class="product-card" data-veiculo="carro">
+                    <div>
+                        <div class="product-img-box"><img src="assets/img/suspensao-carro1.png" alt="Kit Performance"></div>
+                        <small>G&D / LINHA CARRO</small>
+                        <h3>   Amortecedor Dianteiro Traseiro Nakata Fiat Uno</h3>
+                        <p class="price">R$ 995,99</p>
+                   </div>
+                    <a href="produto.html" class="btn-lime" style="text-align:center;">Ver detalhes →</a>
+                </div>
+
+
+<!-- Card 2: suspensao Carro -->
+
+
+<div class="product-card" data-veiculo="carro">
+                    <div>
+                        <div class="product-img-box"><img src="assets/img/suspensao-carro2.png" alt="Kit Performance"></div>
+                        <small>G&D / LINHA CARRO</small>
+                        <h3>  Kit 4 Amortecedor Traseiro Dianteiro Onix Prisma Cobalt</h3>
+                        <p class="price">R$ 1.188,99</p>
+                   </div>
+                    <a href="produto.html" class="btn-lime" style="text-align:center;">Ver detalhes →</a>
+                </div>
+
+
+<!-- Card 3: suspensao Carro -->
+
+
+<div class="product-card" data-veiculo="carro">
+                    <div>
+                        <div class="product-img-box"><img src="assets/img/suspensao-carro3.png" alt="Kit Performance"></div>
+                        <small>G&D / LINHA CARRO</small>
+                        <h3>  4 Amortecedor Original Nakata Gol Voyage G5 G6 G7 + Kit Compressão</h3>
+                        <p class="price">R$ 794,99</p>
+                   </div>
+                    <a href="produto.html" class="btn-lime" style="text-align:center;">Ver detalhes →</a>
+                </div>
+
+
+
+
+
+
+
+
+
+<!-- ---------------------------------------------------------
+                     PRODUTOS DA LINHA MOTO (data-veiculo="moto")
+                     Iniciam ocultos (display: none) até o filtro "Motos" ser clicado
+                     --------------------------------------------------------- -->
+
+                <!-- Card 1: Kit Freio Dianteiro Moto - Street -->
+               <div class="product-card" data-veiculo="moto">
+                    <div>
+                        <div class="product-img-box">
+                            <span class="tag-badge">MAIS VENDIDO</span>
+                            <img src="assets/img/disco-freio2.png" alt="Kit Freio Moto Street">
+                        </div>
+                        <small>G&D / LINHA MOTO</small>
+                        <h3>Kit freio dianteiro G&D Moto Titan/Fan-160 cilindras </h3>
+                        <p class="price">R$ 38,00</p>
+                    </div>
+                    <a href="produto.html?item=moto-street" class="btn-lime" style="text-align:center;">Ver detalhes →</a>
+                </div>
+
+                  <!-- Card 2: Kit Freio Dianteiro Moto - Street -->
+               <div class="product-card" data-veiculo="moto">
+                    <div>
+                        <div class="product-img-box">
+                           
+                            <img src="assets/img/disco-moto2.jpeg" alt="Kit Freio Moto Street">
+                        </div>
+                        <small>G&D / LINHA MOTO</small>
+                        <h3>Kit freio traseiro G&D Moto Titan/Fan-160 cilindras </h3>
+                        <p class="price">R$ 32,00</p>
+                    </div>
+                    <a href="produto.html?item=moto-street" class="btn-lime" style="text-align:center;">Ver detalhes →</a>
+                </div>
+
+                  <!-- Card 3: Kit Freio Dianteiro Moto - Street -->
+               <div class="product-card" data-veiculo="moto">
+                    <div>
+                        <div class="product-img-box">
+                           
+                            <img src="assets/img/disco-moto3.jpeg" alt="Kit Freio Moto Street">
+                        </div>
+                        <small>G&D / LINHA MOTO</small>
+                        <h3>Kit freio traseiro G&D Lander 250 </h3>
+                        <p class="price">R$ 52,00</p>
+                    </div>
+                    <a href="produto.html?item=moto-street" class="btn-lime" style="text-align:center;">Ver detalhes →</a>
+                </div>
+
+
+
+
+                   <!-- Card 1: filtro Moto - Street -->
+               <div class="product-card" data-veiculo="moto">
+                    <div>
+                        <div class="product-img-box">
+                           
+                            <img src="assets/img/filtro-moto1.png" alt="Kit Freio Moto Street">
+                        </div>
+                        <small>G&D / LINHA MOTO</small>
+                        <h3>Filtro Óleo Intruder 125 2002 2005 2008 2010 2012 2014 2016 </h3>
+                        <p class="price">R$ 42,50</p>
+                    </div>
+                    <a href="produto.html?item=moto-street" class="btn-lime" style="text-align:center;">Ver detalhes →</a>
+                </div>
+
+
+                 <!-- Card 2: filtro Moto - Street -->
+               <div class="product-card" data-veiculo="moto">
+                    <div>
+                        <div class="product-img-box">
+                           
+                            <img src="assets/img/filtro-moto2.png" alt="Kit Freio Moto Street">
+                        </div>
+                        <small>G&D / LINHA MOTO</small>
+                        <h3>Filtro De Óleo Dafra Apache 150 De 2010 2011 2012 2013 2014 </h3>
+                        <p class="price">R$ 25,00</p>
+                    </div>
+                    <a href="produto.html?item=moto-street" class="btn-lime" style="text-align:center;">Ver detalhes →</a>
+                </div>
+
+                 <!-- Card 3: filtro Moto - Street -->
+               <div class="product-card" data-veiculo="moto">
+                    <div>
+                        <div class="product-img-box">
+                           
+                            <img src="assets/img/filtro-moto3.png" alt="Kit Freio Moto Street">
+                        </div>
+                        <small>G&D / LINHA MOTO</small>
+                        <h3>Filtro De Óleo Motor Yamaha Xj6 N F 600 Xj6n Xj6f 2010-2019 </h3>
+                        <p class="price">R$ 37,00</p>
+                    </div>
+                    <a href="produto.html?item=moto-street" class="btn-lime" style="text-align:center;">Ver detalhes →</a>
+                </div>
+
+
+
+                 <!-- Card 1: suspensao Moto - Street -->
+               <div class="product-card" data-veiculo="moto">
+                    <div>
+                        <div class="product-img-box">
+                           
+                            <img src="assets/img/suspensao-moto1.png" alt="Kit Freio Moto Street">
+                        </div>
+                        <small>G&D / LINHA MOTO</small>
+                        <h3>Par Amortecedor Suspensão Traseira Cg 150 160 Fan Titan </h3>
+                        <p class="price">R$ 179,50</p>
+                    </div>
+                    <a href="produto.html?item=moto-street" class="btn-lime" style="text-align:center;">Ver detalhes →</a>
+                </div>
+                
+ <!-- Card 2: suspensao Moto - Street -->
+               <div class="product-card" data-veiculo="moto">
+                    <div>
+                        <div class="product-img-box">
+                           
+                            <img src="assets/img/suspensao-moto2.png" alt="Kit Freio Moto Street">
+                        </div>
+                        <small>G&D / LINHA MOTO</small>
+                        <h3>Par Amortecedor Traseiro Biz 125 2011 2012 2013 2014 A 2022 </h3>
+                        <p class="price">R$ 119,99</p>
+                    </div>
+                    <a href="produto.html?item=moto-street" class="btn-lime" style="text-align:center;">Ver detalhes →</a>
+                </div>
+
+
+                 <!-- Card 3: suspensao Moto - Street -->
+               <div class="product-card" data-veiculo="moto">
+                    <div>
+                        <div class="product-img-box">
+                           
+                            <img src="assets/img/suspensao-moto3.png" alt="Kit Freio Moto Street">
+                        </div>
+                        <small>G&D / LINHA MOTO</small>
+                        <h3>Amortecedor Traseiro Lander 250 2007 A 2022 Modelo Original </h3>
+                        <p class="price">R$ 239,90</p>
+                    </div>
+                    <a href="produto.html?item=moto-street" class="btn-lime" style="text-align:center;">Ver detalhes →</a>
+                </div>
+
             </section>
         </div>
     </main>
