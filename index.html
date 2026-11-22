@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>G&D Autopeças - Início</title>
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23181A18'/%3E%3Ctext x='50%25' y='56%25' dominant-baseline='middle' text-anchor='middle' fill='%23B7F028' font-family='Arial, sans-serif' font-weight='bold' font-size='30'%3EGD%3C/text%3E%3C/svg%3E">
 </head>
 <body>
     <!-- Faixa Superior -->
@@ -14,16 +15,21 @@
     </div>
 
     <!-- Cabeçalho -->
-    <header class="header">
-        <div class="logo">G&D <span>AUTOPEÇAS</span></div>
-        <div class="search-bar">
-            <input type="text" placeholder="Busque por peça, marca ou código">
-        </div>
-        <div class="header-actions">
-            <span>Carros + Motos</span>
-            <a href="checkout.html" class="btn-dark">✓ Compra segura</a>
-        </div>
-    </header>
+  <header class="header">
+    <div class="logo">G&D <span>AUTOPEÇAS</span></div>
+    <form class="search-bar" action="catalogo.html">
+        <input type="text" name="busca" placeholder="Busque por peça, marca ou código">
+        <button type="submit" aria-label="Pesquisar">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="7"/><line x1="20" y1="20" x2="16.2" y2="16.2"/>
+            </svg>
+        </button>
+    </form>
+    <div class="header-actions">
+        <span>Carros + Motos</span>
+        <a href="checkout.html" class="btn-dark">🛒 Carrinho de compras</a>
+    </div>
+</header>
 
     <!-- Menu de Navegação -->
     <nav class="navbar">
