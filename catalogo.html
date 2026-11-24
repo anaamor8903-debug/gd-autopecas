@@ -5,6 +5,7 @@
     <title>G&D Autopeças - Catálogo</title>
     <link rel="stylesheet" href="assets/css/style.css">
     <!-- Estilos auxiliares para deixar os itens de filtro clicáveis -->
+    
     <style>
         .filter-item {
             cursor: pointer;
@@ -15,7 +16,8 @@
         .filter-item:hover {
             opacity: 0.75;
         }
-        .filter-item.active {
+        .filter-item.active, 
+        .header a.active {
             font-weight: bold;
         }
     </style>
@@ -26,25 +28,45 @@
         <div class="logo">G&D <span>AUTOPEÇAS</span></div>
         <div class="search-bar"><input type="text" placeholder="Busque por peça, marca ou código"></div>
         <a href="index.html" class="btn-dark">← Início</a>
+        <a href="#" class="active" data-filtro-tipo="todas" data-filtro-valor="todas">Todas as peças</a>
+        <a href="#" data-filtro-tipo="veiculo" data-filtro-valor="carro">Linha carro</a>
+        <a href="#" data-filtro-tipo="veiculo" data-filtro-valor="moto">Linha moto</a>
+        <a href="#" data-filtro-tipo="categoria" data-filtro-valor="freios">Freios</a>
+        <a href="#" data-filtro-tipo="categoria" data-filtro-valor="filtros">Filtros</a>
+        <a href="#" data-filtro-tipo="categoria" data-filtro-valor="suspensao">Suspensão</a>
+  <div class="search-bar"><input type="text" id="searchInput" placeholder="Busque por peça, marca ou código"></div>  
     </header>
 
     <main class="container">
-        <div class="breadcrumb">Início / Carros / Freios</div>
-        <h1 class="page-title">Segurança começa nos freios.</h1>
+        <div class="breadcrumb" id="breadcrumb">Início / Todas as peças</div>
+        <h1 class="page-title"id="pageTitle">Todas as peças</h1>
         <p class="page-subtitle">Encontre o kit ideal para o seu próximo caminho.</p>
 
-        <div class="vehicle-banner">
-            <span><strong>✓ SEU VEÍCULO:</strong> Volkswagen Gol G5 • 2014 • 1.0</span>
-            <span>Mostrando apenas peças compatíveis</span>
+        <div class="vehicle-banner" id="vehicleBanner">
+            <span><strong>✓ CATÁLOGO COMPLETO:</strong> Carros e Motos</span>
+            <span id="contadorProdutos">Mostrando 18 peças </span>
         </div>
 
         <div class="catalog-layout">
             <aside class="sidebar-filter">
                 <h3>Refinar busca</h3>
                 <h4>Tipo de Veículo</h4>
-                <ul><li>● Carros</li><li>○ Motos</li></ul>
+
+<ul>
+                    <li class="filter-item" data-filtro-tipo="veiculo" data-filtro-valor="carro">○ Carros</li>
+                    <li class="filter-item" data-filtro-tipo="veiculo" data-filtro-valor="moto">○ Motos</li>
+                </ul>
+
+            
                 <h4>Categoria</h4>
-                <ul><li><strong>✓ Sistema de freios</strong></li><li>Filtros</li><li>Suspensão</li></ul>
+
+<ul>
+                    <li class="filter-item" data-filtro-tipo="categoria" data-filtro-valor="freios">○ Sistema de freios</li>
+                    <li class="filter-item" data-filtro-tipo="categoria" data-filtro-valor="filtros">○ Filtros</li>
+                    <li class="filter-item" data-filtro-tipo="categoria" data-filtro-valor="suspensao">○ Suspensão</li>
+                </ul>
+
+                
             </aside>
 
             <section class="products-grid">
@@ -54,39 +76,39 @@
                      PRODUTOS DA LINHA CARRO 
                      --------------------------------------------------------- -->
 
-                <!-- Card 1: Kit Freio Dianteiro Carro - Essencial -->
+                <!-- Card 1: Kit Freio Dianteiro Carro  -->
 
-                <div class="product-card" data-veiculo="carro">
+                <div class="product-card" data-veiculo="carro" data-categoria="freios">
                     <div>
                         <div class="product-img-box">
                             <span class="tag-badge">MAIS VENDIDO</span>
                             <img src="assets/img/freio-carro1.PNG" alt="Kit Essencial">
                         </div>
                         <small>G&D / LINHA CARRO</small>
-                        <h3>Kit Freio Dianteira Fiat Argo Cronos Pulse 2022 A 2026 </h3>
+                        <h3>Kit Freio Dianteiro - Fiat Argo Cronos Pulse - modelo 2022 a 2026 </h3>
                         <p class="price">R$ 83,55</p>
                     </div>
                     <a href="produto.html" class="btn-lime" style="text-align:center;">Ver detalhes →</a>
                 </div>
 
-<!-- Card 2: Kit Freio Dianteiro Carro - Pro -->
+<!-- Card 2: Kit Freio Dianteiro Carro-->
 
-                <div class="product-card" data-veiculo="carro">
+                <div class="product-card" data-veiculo="carro" data-categoria="freios">
                     <div>
                         <div class="product-img-box"><img src="assets/img/freio-carro2.png" alt="Kit Pro"></div>
                         <small>G&D / LINHA CARRO</small>
-                        <h3>Kit Pastilha Freio Dianteira Vw T-cross Nivus Virtus Polo Tsi</h3>
+                        <h3> Kit Freio Dianteiro - Vw T-cross Nivus Virtus Polo Tsi- modelo 2020 a 2025</h3>
                         <p class="price">R$ 179,90</p>
                    </div>
                     <a href="produto.html" class="btn-lime" style="text-align:center;">Ver detalhes →</a>
                 </div>
 
-<!-- Card 3: Kit Freio Dianteiro Carro - Performance -->
-                <div class="product-card" data-veiculo="carro">
+<!-- Card 3: Kit Freio Dianteiro Carro -->
+                <div class="product-card" data-veiculo="carro" data-categoria="freios">
                     <div>
                         <div class="product-img-box"><img src="assets/img/freio-carro3.png" alt="Kit Performance"></div>
                         <small>G&D / LINHA CARRO</small>
-                        <h3>Kit  Pastilhas Freio Dianteiro Traseiro Cruze 1.8 2012 /2016</h3>
+                        <h3>Kit  Freio Dianteiro Traseiro Cruze 1.8 - modelo 2012 a 2016</h3>
                         <p class="price">R$ 182,90</p>
                    </div>
                     <a href="produto.html" class="btn-lime" style="text-align:center;">Ver detalhes →</a>
@@ -96,11 +118,11 @@
   <!-- Card 1: Filtros Carro -->
 
 
-<div class="product-card" data-veiculo="carro">
+<div class="product-card" data-veiculo="carro" data-categoria="filtros">
                     <div>
                         <div class="product-img-box"><img src="assets/img/filtro-carro1.png" alt="Kit Performance"></div>
                         <small>G&D / LINHA CARRO</small>
-                        <h3>  Filtro De Oleo Mann Vw Polo Nivus Virtus Up Taos Tcross Tera</h3>
+                        <h3>  Filtro de óleo Mann Vw Polo Nivus Virtus Up Taos Tcross Tera</h3>
                         <p class="price">R$ 29,99</p>
                    </div>
                     <a href="produto.html" class="btn-lime" style="text-align:center;">Ver detalhes →</a>
@@ -110,11 +132,11 @@
 <!-- Card 2: Filtros Carro -->
 
 
-<div class="product-card" data-veiculo="carro">
+<div class="product-card" data-veiculo="carro" data-categoria="filtros">
                     <div>
                         <div class="product-img-box"><img src="assets/img/filtro-carro2.png" alt="Kit Performance"></div>
                         <small>G&D / LINHA CARRO</small>
-                        <h3>  Filtro De Óleo Prisma Celta Montana Onix Astra Meriva Vectra</h3>
+                        <h3>  Filtro de óleo Prisma Celta Montana Onix Astra Meriva Vectra</h3>
                         <p class="price">R$ 25,99</p>
                    </div>
                     <a href="produto.html" class="btn-lime" style="text-align:center;">Ver detalhes →</a>
@@ -122,11 +144,11 @@
 <!-- Card 3: Filtros Carro -->
 
 
-<div class="product-card" data-veiculo="carro">
+<div class="product-card" data-veiculo="carro" data-categoria="filtros">
                     <div>
                         <div class="product-img-box"><img src="assets/img/filtro-carro3.png" alt="Kit Performance"></div>
                         <small>G&D / LINHA CARRO</small>
-                        <h3>Filtro De Óleo Argo Cronos Mobi Nova Strada Fiat 7094709</h3>
+                        <h3>Filtro de óleo Argo Cronos Mobi Nova Strada Fiat 7094709</h3>
                         <p class="price">R$ 70,90</p>
                    </div>
                     <a href="produto.html" class="btn-lime" style="text-align:center;">Ver detalhes →</a>
@@ -136,11 +158,11 @@
  <!-- Card 1: suspensao Carro -->
 
 
-<div class="product-card" data-veiculo="carro">
+<div class="product-card" data-veiculo="carro" data-categoria="suspensao">
                     <div>
                         <div class="product-img-box"><img src="assets/img/suspensao-carro1.png" alt="Kit Performance"></div>
                         <small>G&D / LINHA CARRO</small>
-                        <h3>   Amortecedor Dianteiro Traseiro Nakata Fiat Uno</h3>
+                        <h3>   Kit amortecedor - Dianteiro e Traseiro - marca Nakata - Fiat Uno</h3>
                         <p class="price">R$ 995,99</p>
                    </div>
                     <a href="produto.html" class="btn-lime" style="text-align:center;">Ver detalhes →</a>
@@ -150,11 +172,11 @@
 <!-- Card 2: suspensao Carro -->
 
 
-<div class="product-card" data-veiculo="carro">
+<div class="product-card" data-veiculo="carro" data-categoria="suspensao">
                     <div>
                         <div class="product-img-box"><img src="assets/img/suspensao-carro2.png" alt="Kit Performance"></div>
                         <small>G&D / LINHA CARRO</small>
-                        <h3>  Kit 4 Amortecedor Traseiro Dianteiro Onix Prisma Cobalt</h3>
+                        <h3>  Kit amortecedor - Dianteiro e Traseiro - marca Nakata - Onix Prisma Cobalt</h3>
                         <p class="price">R$ 1.188,99</p>
                    </div>
                     <a href="produto.html" class="btn-lime" style="text-align:center;">Ver detalhes →</a>
@@ -164,11 +186,11 @@
 <!-- Card 3: suspensao Carro -->
 
 
-<div class="product-card" data-veiculo="carro">
+<div class="product-card" data-veiculo="carro" data-categoria="suspensao">
                     <div>
                         <div class="product-img-box"><img src="assets/img/suspensao-carro3.png" alt="Kit Performance"></div>
                         <small>G&D / LINHA CARRO</small>
-                        <h3>  4 Amortecedor Original Nakata Gol Voyage G5 G6 G7 + Kit Compressão</h3>
+                        <h3>  Kit amortecedor - Dianteiro e Traseiro - marca Nakata - Gol Voyage G5 G6 G7 + Kit Compressão</h3>
                         <p class="price">R$ 794,99</p>
                    </div>
                     <a href="produto.html" class="btn-lime" style="text-align:center;">Ver detalhes →</a>
@@ -188,43 +210,43 @@
                      --------------------------------------------------------- -->
 
                 <!-- Card 1: Kit Freio Dianteiro Moto - Street -->
-               <div class="product-card" data-veiculo="moto">
+               <div class="product-card" data-veiculo="moto" data-categoria="freios">
                     <div>
                         <div class="product-img-box">
                             <span class="tag-badge">MAIS VENDIDO</span>
                             <img src="assets/img/disco-freio2.png" alt="Kit Freio Moto Street">
                         </div>
                         <small>G&D / LINHA MOTO</small>
-                        <h3>Kit freio dianteiro G&D Moto Titan/Fan-160 cilindras </h3>
-                        <p class="price">R$ 38,00</p>
+                        <h3>Kit Pastilha de Freio Dianteira + Lona / Patins de Freio Traseira - Fan/Titan 160 - ano 2018</h3>
+                        <p class="price">R$ 53,00</p>
                     </div>
                     <a href="produto.html?item=moto-street" class="btn-lime" style="text-align:center;">Ver detalhes →</a>
                 </div>
 
                   <!-- Card 2: Kit Freio Dianteiro Moto - Street -->
-               <div class="product-card" data-veiculo="moto">
+               <div class="product-card" data-veiculo="moto" data-categoria="freios">
                     <div>
                         <div class="product-img-box">
                            
-                            <img src="assets/img/disco-moto2.jpeg" alt="Kit Freio Moto Street">
+                            <img src="assets/img/disco-moto2.png" alt="Kit Freio Moto Street">
                         </div>
                         <small>G&D / LINHA MOTO</small>
-                        <h3>Kit freio traseiro G&D Moto Titan/Fan-160 cilindras </h3>
-                        <p class="price">R$ 32,00</p>
+                        <h3>Pastilha Freio Dianteira - HONDA CB 650R / CBR 650 2020 - 2022</h3>
+                        <p class="price">R$ 145,86</p>
                     </div>
                     <a href="produto.html?item=moto-street" class="btn-lime" style="text-align:center;">Ver detalhes →</a>
                 </div>
 
                   <!-- Card 3: Kit Freio Dianteiro Moto - Street -->
-               <div class="product-card" data-veiculo="moto">
+               <div class="product-card" data-veiculo="moto" data-categoria="freios">
                     <div>
                         <div class="product-img-box">
                            
                             <img src="assets/img/disco-moto3.jpeg" alt="Kit Freio Moto Street">
                         </div>
                         <small>G&D / LINHA MOTO</small>
-                        <h3>Kit freio traseiro G&D Lander 250 </h3>
-                        <p class="price">R$ 52,00</p>
+                        <h3>Lona Pastilha Freio - Biz 125 Ex 2025 2026 - Dianteiro e Traseiro </h3>
+                        <p class="price">R$ 66,91</p>
                     </div>
                     <a href="produto.html?item=moto-street" class="btn-lime" style="text-align:center;">Ver detalhes →</a>
                 </div>
@@ -233,43 +255,43 @@
 
 
                    <!-- Card 1: filtro Moto - Street -->
-               <div class="product-card" data-veiculo="moto">
+               <div class="product-card" data-veiculo="moto" data-categoria="filtros">
                     <div>
                         <div class="product-img-box">
                            
                             <img src="assets/img/filtro-moto1.png" alt="Kit Freio Moto Street">
                         </div>
                         <small>G&D / LINHA MOTO</small>
-                        <h3>Filtro Óleo Intruder 125 2002 2005 2008 2010 2012 2014 2016 </h3>
-                        <p class="price">R$ 42,50</p>
+                        <h3> Filtro de Óleo Motor Suzuki com Anel Original </h3>
+                        <p class="price">R$ 19,50</p>
                     </div>
                     <a href="produto.html?item=moto-street" class="btn-lime" style="text-align:center;">Ver detalhes →</a>
                 </div>
 
 
                  <!-- Card 2: filtro Moto - Street -->
-               <div class="product-card" data-veiculo="moto">
+               <div class="product-card" data-veiculo="moto" data-categoria="filtros">
                     <div>
                         <div class="product-img-box">
                            
                             <img src="assets/img/filtro-moto2.png" alt="Kit Freio Moto Street">
                         </div>
                         <small>G&D / LINHA MOTO</small>
-                        <h3>Filtro De Óleo Dafra Apache 150 De 2010 2011 2012 2013 2014 </h3>
-                        <p class="price">R$ 25,00</p>
+                        <h3>Filtro de Óleo do Motor Dominar 200 / 250 / 400 / NS400Z / Pulsar N150 </h3>
+                        <p class="price">R$ 61,89</p>
                     </div>
                     <a href="produto.html?item=moto-street" class="btn-lime" style="text-align:center;">Ver detalhes →</a>
                 </div>
 
                  <!-- Card 3: filtro Moto - Street -->
-               <div class="product-card" data-veiculo="moto">
+               <div class="product-card" data-veiculo="moto" data-categoria="filtros">
                     <div>
                         <div class="product-img-box">
                            
                             <img src="assets/img/filtro-moto3.png" alt="Kit Freio Moto Street">
                         </div>
                         <small>G&D / LINHA MOTO</small>
-                        <h3>Filtro De Óleo Motor Yamaha Xj6 N F 600 Xj6n Xj6f 2010-2019 </h3>
+                        <h3>Filtro De Óleo Motor Yamaha Xj6 NF 600, Xj6n, Xj6f- 2010-2019 </h3>
                         <p class="price">R$ 37,00</p>
                     </div>
                     <a href="produto.html?item=moto-street" class="btn-lime" style="text-align:center;">Ver detalhes →</a>
@@ -278,28 +300,28 @@
 
 
                  <!-- Card 1: suspensao Moto - Street -->
-               <div class="product-card" data-veiculo="moto">
+               <div class="product-card" data-veiculo="moto" data-categoria="suspensao">
                     <div>
                         <div class="product-img-box">
                            
                             <img src="assets/img/suspensao-moto1.png" alt="Kit Freio Moto Street">
                         </div>
                         <small>G&D / LINHA MOTO</small>
-                        <h3>Par Amortecedor Suspensão Traseira Cg 150 160 Fan Titan </h3>
+                        <h3>Par Amortecedor Suspensão Traseira Cg 150/160 e Cg 160 Titan</h3>
                         <p class="price">R$ 179,50</p>
                     </div>
                     <a href="produto.html?item=moto-street" class="btn-lime" style="text-align:center;">Ver detalhes →</a>
                 </div>
                 
  <!-- Card 2: suspensao Moto - Street -->
-               <div class="product-card" data-veiculo="moto">
+               <div class="product-card" data-veiculo="moto" data-categoria="suspensao">
                     <div>
                         <div class="product-img-box">
                            
                             <img src="assets/img/suspensao-moto2.png" alt="Kit Freio Moto Street">
                         </div>
                         <small>G&D / LINHA MOTO</small>
-                        <h3>Par Amortecedor Traseiro Biz 125 2011 2012 2013 2014 A 2022 </h3>
+                        <h3>Par Amortecedor Traseiro Biz 125 - 2011 a 2022 </h3>
                         <p class="price">R$ 119,99</p>
                     </div>
                     <a href="produto.html?item=moto-street" class="btn-lime" style="text-align:center;">Ver detalhes →</a>
@@ -307,14 +329,14 @@
 
 
                  <!-- Card 3: suspensao Moto - Street -->
-               <div class="product-card" data-veiculo="moto">
+               <div class="product-card" data-veiculo="moto" data-categoria="suspensao">
                     <div>
                         <div class="product-img-box">
                            
                             <img src="assets/img/suspensao-moto3.png" alt="Kit Freio Moto Street">
                         </div>
                         <small>G&D / LINHA MOTO</small>
-                        <h3>Amortecedor Traseiro Lander 250 2007 A 2022 Modelo Original </h3>
+                        <h3> Amortecedor Traseiro Lander 250 - 2007 a 2022 </h3>
                         <p class="price">R$ 239,90</p>
                     </div>
                     <a href="produto.html?item=moto-street" class="btn-lime" style="text-align:center;">Ver detalhes →</a>
@@ -323,5 +345,90 @@
             </section>
         </div>
     </main>
+
+<!-- Script que ativa os filtros do cabeçalho, da sidebar e da busca -->
+    <script>
+        const cards = document.querySelectorAll('.product-card');
+        const botoesFiltro = document.querySelectorAll('[data-filtro-tipo]');
+        const searchInput = document.getElementById('searchInput');
+        const breadcrumb = document.getElementById('breadcrumb');
+        const pageTitle = document.getElementById('pageTitle');
+        const contadorProdutos = document.getElementById('contadorProdutos');
+
+        //  Filtro inicial ao carregar a página ('todas', 'veiculo' ou 'categoria')
+        let filtroAtivo = { tipo: 'todas', valor: 'todas' };
+
+        // Textos de trilha e título exibidos ao clicar em cada filtro
+        const titulos = {
+            'todas:todas': { trilha: 'Início / Todas as peças', titulo: 'Todas as peças' },
+            'veiculo:carro': { trilha: 'Início / Linha carro', titulo: 'Peças - Linha carro' },
+            'veiculo:moto': { trilha: 'Início / Linha moto', titulo: 'Peças - Linha moto' },
+            'categoria:freios': { trilha: 'Início / Freios', titulo: 'Freios (Carro e Moto)' },
+            'categoria:filtros': { trilha: 'Início / Filtros', titulo: 'Filtros (Carro e Moto)' },
+            'categoria:suspensao': { trilha: 'Início / Suspensão', titulo: 'Suspensão (Carro e Moto)' }
+        };
+
+        function aplicarFiltro() {
+            const termo = searchInput.value.toLowerCase().trim();
+            let visiveis = 0;
+
+            cards.forEach(card => {
+                const veiculo = card.getAttribute('data-veiculo');
+                const categoria = card.getAttribute('data-categoria');
+                const texto = card.innerText.toLowerCase();
+
+                let bateFiltro = true;
+                if (filtroAtivo.tipo === 'veiculo') {
+                    bateFiltro = (veiculo === filtroAtivo.valor);
+                } else if (filtroAtivo.tipo === 'categoria') {
+                    bateFiltro = (categoria === filtroAtivo.valor);
+                }
+
+                const bateBusca = !termo || texto.includes(termo);
+
+                if (bateFiltro && bateBusca) {
+                    card.style.display = '';
+                    visiveis++;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            const info = titulos[`${filtroAtivo.tipo}:${filtroAtivo.valor}`] || titulos['todas:todas'];
+            breadcrumb.textContent = info.trilha;
+            pageTitle.textContent = info.titulo;
+            // Texto do contador de peças visíveis
+            contadorProdutos.textContent = `Mostrando ${visiveis} ${visiveis === 1 ? 'peça' : 'peças'}`;
+        }
+
+        botoesFiltro.forEach(botao => {
+            botao.addEventListener('click', (e) => {
+                e.preventDefault();
+                filtroAtivo = {
+                    tipo: botao.getAttribute('data-filtro-tipo'),
+                    valor: botao.getAttribute('data-filtro-valor')
+                };
+
+                botoesFiltro.forEach(el => {
+                    const mesmo = el.getAttribute('data-filtro-tipo') === filtroAtivo.tipo &&
+                                  el.getAttribute('data-filtro-valor') === filtroAtivo.valor;
+                    el.classList.toggle('active', mesmo);
+
+                    if (el.classList.contains('filter-item')) {
+                        const labelLimpo = el.textContent.replace(/^[●○]\s*/, '');
+                        // Ícones de selecionado e não selecionado na sidebar
+                        el.textContent = (mesmo ? '● ' : '○ ') + labelLimpo;
+                    }
+                });
+
+                aplicarFiltro();
+            });
+        });
+
+        searchInput.addEventListener('input', aplicarFiltro);
+
+        aplicarFiltro();
+    </script>
+
 </body>
 </html>
