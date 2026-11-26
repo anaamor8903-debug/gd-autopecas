@@ -2,9 +2,15 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
+
+    <!-- Título exibido na aba do navegador -->
     <title>G&D Autopeças - Catálogo</title>
+
+    <!-- Caminho da folha de estilo principal do site -->
     <link rel="stylesheet" href="assets/css/style.css">
-    <!-- Estilos auxiliares para deixar os itens de filtro clicáveis -->
+    
+    
+    <!-- Etapa visual: deixa os itens clicáveis de filtro com cursor de mãozinha -->
     
     <style>
         .filter-item {
@@ -13,9 +19,14 @@
             user-select: none;
             transition: opacity 0.2s;
         }
+
+    /* Etapa visual: reduz levemente a opacidade ao passar o mouse */
+
         .filter-item:hover {
             opacity: 0.75;
         }
+
+        /* Destaque visual para o filtro ativo no menu lateral e no cabeçalho */
         .filter-item.active, 
         .header a.active {
             font-weight: bold;
@@ -24,9 +35,18 @@
 </head>
 <body>
 
+<!-- Etapa 1: Cabeçalho com navegação, abas de filtro e barra de pesquisa -->
+
     <header class="header">
+
+        <!-- Nome / logotipo da loja -->
         <div class="logo">G&D <span>AUTOPEÇAS</span></div>
+
+        
         <div class="search-bar"><input type="text" placeholder="Busque por peça, marca ou código"></div>
+        
+        
+        <!-- Abas de navegação e filtro (altere textos, valores ou adicione/remova abas) -->
         <a href="index.html" class="btn-dark">← Início</a>
         <a href="#" class="active" data-filtro-tipo="todas" data-filtro-valor="todas">Todas as peças</a>
         <a href="#" data-filtro-tipo="veiculo" data-filtro-valor="carro">Linha carro</a>
@@ -34,21 +54,40 @@
         <a href="#" data-filtro-tipo="categoria" data-filtro-valor="freios">Freios</a>
         <a href="#" data-filtro-tipo="categoria" data-filtro-valor="filtros">Filtros</a>
         <a href="#" data-filtro-tipo="categoria" data-filtro-valor="suspensao">Suspensão</a>
-  <div class="search-bar"><input type="text" id="searchInput" placeholder="Busque por peça, marca ou código"></div>  
+  
+  <!-- Campo de busca por nome, marca, linha ou categoria -->
+        <div class="search-bar"><input type="text" id="searchInput" placeholder="Busque por peça, marca ou código"></div>  
     </header>
 
+
+<!-- Etapa 2: Conteúdo principal do catálogo -->
+
     <main class="container">
+
+        <!-- Caminho de navegação inicial exibido no topo -->
         <div class="breadcrumb" id="breadcrumb">Início / Todas as peças</div>
+
+        <!-- Título principal inicial exibido na página -->
         <h1 class="page-title"id="pageTitle">Todas as peças</h1>
+
+        <!-- Subtítulo descritivo do catálogo -->
         <p class="page-subtitle">Encontre o kit ideal para o seu próximo caminho.</p>
 
+
+
+      <!-- Banner de resumo com contador dinâmico de peças visíveis -->  
         <div class="vehicle-banner" id="vehicleBanner">
             <span><strong>✓ CATÁLOGO COMPLETO:</strong> Carros e Motos</span>
             <span id="contadorProdutos">Mostrando 18 peças </span>
         </div>
 
         <div class="catalog-layout">
+
+<!-- Etapa 3: Barra lateral de refinamento por veículo e categoria -->
+
             <aside class="sidebar-filter">
+
+                <!--  Títulos e opções de filtro na barra lateral -->
                 <h3>Refinar busca</h3>
                 <h4>Tipo de Veículo</h4>
 
@@ -71,11 +110,14 @@
 
             <section class="products-grid">
 
+<!-- Etapa 4: Grade de cards de produtos -->
+            <!-- data-veiculo ("carro" ou "moto")
+                 - data-categoria ("freios", "filtros" ou "suspensao")
+                 - imagem (src e alt), selo (.tag-badge), linha (small), título (h3), preço (.price) e link (a[href]) -->
 
-<!-- ---------------------------------------------------------
-                     PRODUTOS DA LINHA CARRO 
-                     --------------------------------------------------------- -->
 
+
+                 <!-- PRODUTOS DA LINHA CARRO -->
                 <!-- Card 1: Kit Freio Dianteiro Carro  -->
 
                 <div class="product-card" data-veiculo="carro" data-categoria="freios">
@@ -346,89 +388,130 @@
         </div>
     </main>
 
-<!-- Script que ativa os filtros do cabeçalho, da sidebar e da busca -->
-    <script>
-        const cards = document.querySelectorAll('.product-card');
-        const botoesFiltro = document.querySelectorAll('[data-filtro-tipo]');
-        const searchInput = document.getElementById('searchInput');
-        const breadcrumb = document.getElementById('breadcrumb');
-        const pageTitle = document.getElementById('pageTitle');
+<!-- Etapa 5: Script com Estrutura de Dados (Lista Linear) e Método de Pesquisa (Busca Sequencial) -->
+
+
+
+   <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // 1. ESTRUTURA DE DADOS (Lista Linear): mapeia cada card e seus atributos
+        const listaProdutos = Array.from(document.querySelectorAll('.product-card')).map((card, i) => ({
+            id: i + 1,
+            elemento: card,
+            veiculo: (card.getAttribute('data-veiculo') || '').toLowerCase().trim(),
+            categoria: (card.getAttribute('data-categoria') || '').toLowerCase().trim(),
+            texto: card.innerText.toLowerCase()
+        }));
+
+        const searchInput = document.getElementById('searchInput') || document.querySelector('.search-bar input');
+        const breadcrumb = document.getElementById('breadcrumb') || document.querySelector('.breadcrumb');
+        const pageTitle = document.getElementById('pageTitle') || document.querySelector('.page-title');
         const contadorProdutos = document.getElementById('contadorProdutos');
 
-        //  Filtro inicial ao carregar a página ('todas', 'veiculo' ou 'categoria')
-        let filtroAtivo = { tipo: 'todas', valor: 'todas' };
-
-        // Textos de trilha e título exibidos ao clicar em cada filtro
-        const titulos = {
-            'todas:todas': { trilha: 'Início / Todas as peças', titulo: 'Todas as peças' },
-            'veiculo:carro': { trilha: 'Início / Linha carro', titulo: 'Peças - Linha carro' },
-            'veiculo:moto': { trilha: 'Início / Linha moto', titulo: 'Peças - Linha moto' },
-            'categoria:freios': { trilha: 'Início / Freios', titulo: 'Freios (Carro e Moto)' },
-            'categoria:filtros': { trilha: 'Início / Filtros', titulo: 'Filtros (Carro e Moto)' },
-            'categoria:suspensao': { trilha: 'Início / Suspensão', titulo: 'Suspensão (Carro e Moto)' }
+        // Mapa que traduz o texto visível do menu para o critério de filtro
+        const mapaMenus = {
+            'todas as peças': { tipo: 'todas', valor: 'todas', trilha: 'Início / Todas as peças', titulo: 'Todas as peças' },
+            'linha carro':    { tipo: 'veiculo', valor: 'carro', trilha: 'Início / Linha carro', titulo: 'Peças - Linha carro' },
+            'carros':         { tipo: 'veiculo', valor: 'carro', trilha: 'Início / Linha carro', titulo: 'Peças - Linha carro' },
+            'linha moto':     { tipo: 'veiculo', valor: 'moto', trilha: 'Início / Linha moto', titulo: 'Peças - Linha moto' },
+            'motos':          { tipo: 'veiculo', valor: 'moto', trilha: 'Início / Linha moto', titulo: 'Peças - Linha moto' },
+            'freios':         { tipo: 'categoria', valor: 'freios', trilha: 'Início / Freios', titulo: 'Freios (Carro e Moto)' },
+            'sistema de freios': { tipo: 'categoria', valor: 'freios', trilha: 'Início / Freios', titulo: 'Freios (Carro e Moto)' },
+            'filtros':        { tipo: 'categoria', valor: 'filtros', trilha: 'Início / Filtros', titulo: 'Filtros (Carro e Moto)' },
+            'suspensão':      { tipo: 'categoria', valor: 'suspensao', trilha: 'Início / Suspensão', titulo: 'Suspensão (Carro e Moto)' },
+            'suspensao':      { tipo: 'categoria', valor: 'suspensao', trilha: 'Início / Suspensão', titulo: 'Suspensão (Carro e Moto)' }
         };
 
-        function aplicarFiltro() {
-            const termo = searchInput.value.toLowerCase().trim();
+        let filtroAtivo = mapaMenus['todas as peças'];
+
+        // 2. MÉTODO DE PESQUISA (Busca Sequencial): filtra a lista pelo critério e termo de busca
+        function executarBusca() {
+            const termo = (searchInput ? searchInput.value : '').toLowerCase().trim();
             let visiveis = 0;
 
-            cards.forEach(card => {
-                const veiculo = card.getAttribute('data-veiculo');
-                const categoria = card.getAttribute('data-categoria');
-                const texto = card.innerText.toLowerCase();
-
+            listaProdutos.forEach((item) => {
                 let bateFiltro = true;
                 if (filtroAtivo.tipo === 'veiculo') {
-                    bateFiltro = (veiculo === filtroAtivo.valor);
+                    bateFiltro = (item.veiculo === filtroAtivo.valor);
                 } else if (filtroAtivo.tipo === 'categoria') {
-                    bateFiltro = (categoria === filtroAtivo.valor);
+                    bateFiltro = (item.categoria === filtroAtivo.valor);
                 }
 
-                const bateBusca = !termo || texto.includes(termo);
+                const bateBusca = !termo || item.texto.includes(termo);
 
                 if (bateFiltro && bateBusca) {
-                    card.style.display = '';
+                    item.elemento.style.removeProperty('display');
                     visiveis++;
                 } else {
-                    card.style.display = 'none';
+                    item.elemento.style.setProperty('display', 'none', 'important');
                 }
             });
 
-            const info = titulos[`${filtroAtivo.tipo}:${filtroAtivo.valor}`] || titulos['todas:todas'];
-            breadcrumb.textContent = info.trilha;
-            pageTitle.textContent = info.titulo;
-            // Texto do contador de peças visíveis
-            contadorProdutos.textContent = `Mostrando ${visiveis} ${visiveis === 1 ? 'peça' : 'peças'}`;
+            if (breadcrumb) breadcrumb.textContent = filtroAtivo.trilha;
+            if (pageTitle) pageTitle.textContent = filtroAtivo.titulo;
+            if (contadorProdutos) {
+                contadorProdutos.textContent = `Mostrando ${visiveis} ${visiveis === 1 ? 'peça' : 'peças'}`;
+            }
         }
 
-        botoesFiltro.forEach(botao => {
-            botao.addEventListener('click', (e) => {
-                e.preventDefault();
-                filtroAtivo = {
-                    tipo: botao.getAttribute('data-filtro-tipo'),
-                    valor: botao.getAttribute('data-filtro-valor')
-                };
+        // Captura cliques em QUALQUER link ou item de lista da página pelo texto visível
+        document.addEventListener('click', (evento) => {
+            const alvo = evento.target.closest('a, li, button');
+            if (!alvo) return;
 
-                botoesFiltro.forEach(el => {
-                    const mesmo = el.getAttribute('data-filtro-tipo') === filtroAtivo.tipo &&
-                                  el.getAttribute('data-filtro-valor') === filtroAtivo.valor;
-                    el.classList.toggle('active', mesmo);
+            // Ignora o botão "Ver detalhes" dos cards e o link "Início"
+            if (alvo.classList.contains('btn-lime')) return;
 
-                    if (el.classList.contains('filter-item')) {
-                        const labelLimpo = el.textContent.replace(/^[●○]\s*/, '');
-                        // Ícones de selecionado e não selecionado na sidebar
-                        el.textContent = (mesmo ? '● ' : '○ ') + labelLimpo;
-                    }
+            const textoLimpo = alvo.textContent.replace(/^[●○✓]\s*/, '').toLowerCase().trim();
+            if (mapaMenus[textoLimpo]) {
+                evento.preventDefault();
+                filtroAtivo = mapaMenus[textoLimpo];
+
+                // Destaca o item clicado
+                document.querySelectorAll('a, .filter-item').forEach((el) => {
+                    const t = el.textContent.replace(/^[●○✓]\s*/, '').toLowerCase().trim();
+                    el.style.fontWeight = (t === textoLimpo) ? 'bold' : '';
                 });
 
-                aplicarFiltro();
-            });
+                executarBusca();
+            }
         });
 
-        searchInput.addEventListener('input', aplicarFiltro);
+        // Verifica se veio algum filtro pela URL 
+        const params = new URLSearchParams(window.location.search);
+        const filtroUrl = (params.get('filtro') || '').toLowerCase().trim();
 
-        aplicarFiltro();
-    </script>
+        const mapaUrl = {
+            'todas':     { tipo: 'todas', valor: 'todas' },
+            'carro':     { tipo: 'veiculo', valor: 'carro' },
+            'moto':      { tipo: 'veiculo', valor: 'moto' },
+            'freios':    { tipo: 'categoria', valor: 'freios' },
+            'filtros':   { tipo: 'categoria', valor: 'filtros' },
+            'suspensao': { tipo: 'categoria', valor: 'suspensao' }
+        };
+
+        if (mapaUrl[filtroUrl]) {
+            filtroAtivo = mapaUrl[filtroUrl];
+
+            // Marca a aba e o item lateral correspondentes como ativos
+            botoesFiltro.forEach((el) => {
+                const mesmo =
+                    el.getAttribute('data-filtro-tipo') === filtroAtivo.tipo &&
+                    el.getAttribute('data-filtro-valor') === filtroAtivo.valor;
+
+                el.classList.toggle('active', mesmo);
+
+                if (el.classList.contains('filter-item')) {
+                    const labelLimpo = el.textContent.replace(/^[●○]\s*/, '');
+                    el.textContent = (mesmo ? '● ' : '○ ') + labelLimpo;
+                }
+            });
+        }
+
+        // Executa a filtragem inicial assim que a página carrega
+        atualizarInterface();
+    });
+</script>
 
 </body>
 </html>
